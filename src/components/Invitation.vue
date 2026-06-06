@@ -138,7 +138,6 @@ onMounted(async () => {
     guest.value = foundGuest;
 
     if (foundGuest) {
-      formData.value.name = foundGuest.name;
       if (foundGuest.rsvp === true || foundGuest.response) {
         showForm.value = false;
       }
@@ -532,7 +531,7 @@ function scrollToTransferForm() {
               />
             </div>
             <div
-              class="break-inside-avoid overflow-hidden rounded-xl shadow-lg hover:rotate-1 transition-transform duration-300 hidden sm:block"
+              class="break-inside-avoid overflow-hidden rounded-xl shadow-lg hover:rotate-1 transition-transform duration-300 block"
             >
               <img
                 src="/dress-code7.jpg"
@@ -541,7 +540,7 @@ function scrollToTransferForm() {
               />
             </div>
             <div
-              class="break-inside-avoid overflow-hidden rounded-xl shadow-lg hover:-rotate-1 transition-transform duration-300 hidden sm:block"
+              class="break-inside-avoid overflow-hidden rounded-xl shadow-lg hover:-rotate-1 transition-transform duration-300 block"
             >
               <img
                 src="/dress-gold.png"
@@ -550,7 +549,7 @@ function scrollToTransferForm() {
               />
             </div>
             <div
-              class="break-inside-avoid overflow-hidden rounded-xl shadow-lg hover:rotate-1 transition-transform duration-300 hidden sm:block"
+              class="break-inside-avoid overflow-hidden rounded-xl shadow-lg hover:rotate-1 transition-transform duration-300 block"
             >
               <img
                 src="/dress-gold2.png"
@@ -630,7 +629,7 @@ function scrollToTransferForm() {
         class="max-w-md mx-auto my-8 sm:my-12 p-6 sm:p-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-slate-100 text-center font-sans mx-4"
       >
         <h3
-          class="text-xl sm:text-2xl md:text-4xl font-title text-blue-dark2 mb-2 font-bold"
+          class="text-3xl md:text-4xl font-title text-blue-dark2 mb-2 font-bold"
         >
           Підтвердження <br />
           присутності
