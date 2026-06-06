@@ -13,9 +13,9 @@ function viewInvitation() {
 <template>
   <div class="bg-blue-dark w-full h-screen relative p-4">
     <div
-      class="bg-white-light w-full rounded-2xl max-w-7xl min-h-[90%] relative top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] p-[40px]"
+      class="flex items-center justify-center bg-white-light w-full rounded-2xl max-w-7xl min-h-[90%] relative top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] p-[40px]"
     >
-      <h1 class="font-title font-extralight text-8xl text-center">
+      <h1 class="font-letters font-extralight text-8xl text-center">
         Артур & Віолетта
       </h1>
       <p class="text-center font-subtitle font-extralight text-2xl">
