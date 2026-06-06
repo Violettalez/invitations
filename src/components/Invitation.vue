@@ -285,6 +285,15 @@ function scrollToTransferForm() {
           </div>
         </div>
       </div>
+      <iframe
+        class="w-full"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2667.2241933343157!2d30.846213975912335!3d48.048008857393114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40ce4914c9b035e3%3A0x706e4539e154373!2zUml2ZXIg0J_QtdGA0LLQvtC80LDQudGB0YzQug!5e0!3m2!1sru!2sua!4v1780785966991!5m2!1sru!2sua"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
 
     <div
