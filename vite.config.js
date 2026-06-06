@@ -66,5 +66,5 @@ export default defineConfig({
       },
     },
   ],
-  base: "/violettalez.github.io/invitations/",
+  base: "/invitations/",
 });
