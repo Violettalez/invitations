@@ -11,29 +11,36 @@ function viewInvitation() {
 </script>
 
 <template>
-  <div class="bg-blue-dark w-full h-screen relative p-4">
+  <div
+    class="bg-[url('/home-bg1.jpg')] bg-cover bg-center w-full h-screen relative p-4"
+  >
     <div
-      class="flex items-center justify-center bg-white-light w-full rounded-2xl max-w-7xl min-h-[90%] relative top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] p-[40px]"
+      class="relative flex flex-col items-center justify-center w-full max-w-4xl min-h-[90%] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] p-[40px] rounded-2xl overflow-hidden bg-white"
     >
-      <h1 class="font-letters font-extralight text-8xl text-center">
-        Артур & Віолетта
+      <div
+        class="absolute inset-0 bg-[url(/home-bg22.jpg)] md:bg-[url(/home-bg2.jpg)] bg-cover bg-center blur-[6px] md:blur-[2px] pointer-events-none"
+      ></div>
+      <h1 class="font-home-title font-medium text-8xl text-center z-50">
+        Arthur & Violetta
       </h1>
-      <p class="text-center font-subtitle font-extralight text-2xl">
+      <p class="text-center font-subtitle font-light text-2xl mb-4 z-50">
         Запрошення на весілля
       </p>
-      <div class="flex gap-3 items-center justify-center">
+      <div
+        class="flex flex-col md:flex-row gap-3 items-center justify-center z-50"
+      >
         <input
           type="text"
-          placeholder="Enter your invitation code"
+          placeholder="Введіть код запрошення"
           v-model="invitCode"
-          class="px-4 py-2 w-64 rounded-xl bg-white-light border border-blue-light text-blue-dark placeholder:text-blue-dark/60 focus:outline-none focus:ring-2 focus:ring-gold-dark) focus:border-gold-dark transition"
+          class="px-4 py-2 w-64 rounded-xl bg-white-light border border-blue-dark2 text-blue-dark2 placeholder:text-blue-dark2 focus:border-gold-dark transition"
         />
 
         <button
           @click="viewInvitation"
-          class="px-5 py-2 rounded-xl bg-gold-dark text-white font-medium hover:bg-gold-light hover:text-blue-dark active:scale-95 transition"
+          class="w-full md:w-max px-5 py-2 rounded-xl bg-gold-dark text-white font-medium hover:bg-gold-dark active:scale-95 transition"
         >
-          View Invitation
+          Переглянути запрошення
         </button>
       </div>
     </div>
