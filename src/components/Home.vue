@@ -1,11 +1,15 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const invitCode = ref("");
+
 function viewInvitation() {
   if (invitCode.value.trim() !== "") {
-    window.location.href = `/invitation/${invitCode.value}`;
+    router.push({ name: "Invitation", params: { code: invitCode.value } });
   } else {
-    alert("Please enter a valid invitation code");
+    alert("Будь ласка, введіть код запрошення.");
   }
 }
 </script>

@@ -132,21 +132,17 @@ function updateCountdown() {
 
 onMounted(async () => {
   try {
-    const response = await fetch(`/data/guests.json`);
+    const response = await fetch(`data/guests.json`);
     const guests = await response.json();
     const foundGuest = guests.find((g) => g.code === userCode);
     guest.value = foundGuest;
 
-    // Предзаполняем имя гостя в форму для его удобства
     if (foundGuest) {
       formData.value.name = foundGuest.name;
-      // если гість уже отправлял ответ — по умолчанию скрываем форму и показываем плашку
       if (foundGuest.rsvp === true || foundGuest.response) {
         showForm.value = false;
       }
     }
-
-    // Запускаем таймер только после монтирования компонента
     updateCountdown();
     timerInterval = setInterval(updateCountdown, 1000);
   } catch (error) {
@@ -157,11 +153,29 @@ onMounted(async () => {
 onUnmounted(() => {
   if (timerInterval) clearInterval(timerInterval);
 });
+function scrollToForm() {
+  const element = document.getElementById("reg-form");
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+}
+function scrollToDetails() {
+  const element = document.getElementById("event");
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+}
+function scrollToTransferForm() {
+  const element = document.getElementById("transfer-form");
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+}
 </script>
 <template>
   <div v-if="guest" class="invitation overflow-x-hidden">
     <div
-      class="hero-block bg-[url(/hero.png)] relative bg-cover bg-center w-full h-[60vh] md:h-screen flex flex-col items-center justify-center text-center px-4"
+      class="hero-block bg-[url(/hero.png)] relative bg-cover bg-center w-full h-screen flex flex-col items-center justify-center text-center px-4"
     >
       <div class="bg-black/50 absolute inset-0"></div>
       <div class="letters relative z-10 w-full">
@@ -177,8 +191,7 @@ onUnmounted(() => {
       </div>
       <div class="text-white mt-4 relative z-10 px-4">
         <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold">
-          <span v-if="guest.sex === 'male'">Шановний</span>
-          <span v-else>Шановна</span> {{ guest.name }}
+          {{ guest.name }}
         </h2>
         <p
           class="text-sm sm:text-base md:text-lg mt-2 max-w-[700px] mx-auto px-2"
@@ -191,18 +204,18 @@ onUnmounted(() => {
       <div
         class="hero-buttons mt-6 w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-10 px-4"
       >
-        <a
-          href="#reg-form"
+        <button
+          @click="scrollToForm"
           class="bg-gold-light border-2 border-gold-light hover:bg-gold-dark text-blue-dark2 hover:text-white py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] text-center"
         >
           Підтвердити участь
-        </a>
-        <a
-          href="#event"
+        </button>
+        <button
+          @click="scrollToDetails"
           class="bg-transparent border-2 border-white hover:bg-gold-dark text-white py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] text-center"
         >
           Деталі весілля
-        </a>
+        </button>
       </div>
       <img
         src="/arrow-down.gif"
@@ -359,18 +372,18 @@ onUnmounted(() => {
           <div
             class="hero-buttons mt-6 w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-10"
           >
-            <a
-              href="#reg-form"
+            <button
+              @click="scrollToForm"
               class="text-center bg-gold-light hover:bg-gold-dark text-blue-dark2 hover:text-white py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] shadow-lg"
             >
               Підтвердити участь
-            </a>
-            <a
-              href="#transfer-form"
+            </button>
+            <button
+              @click="scrollToTransferForm"
               class="text-center bg-blue-light hover:bg-blue-dark hover:text-white text-blue-dark2 py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] shadow-lg"
             >
               Транспортування
-            </a>
+            </button>
           </div>
         </div>
       </div>

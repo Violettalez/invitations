@@ -14,6 +14,8 @@ const routes = [
     component: Invitation,
   },
 ];
-const router = createRouter({ history: createWebHashHistory(), routes });
-
+const router = createRouter({
+  history: createWebHashHistory("/invitations/"),
+  routes,
+});
 export default router;

@@ -1,11 +1,11 @@
 [
   {
     "code": "a3d5q12tAQW3",
-    "name": "Гліб Спірін",
+    "name": "Шановний Гліб Спірін",
     "email": "john.doe@example.com",
     "phone": "+1234567890",
     "sex": "male",
-    "family": true,
+    "family": false,
     "niko": false,
     "rsvp": false
   },
