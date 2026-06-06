@@ -102,12 +102,12 @@ function scrollToTransferForm() {
       <div
         class="hero-buttons mt-6 w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-10 px-4"
       >
-        <a
-          href=""
+        <button
+          @click="scrollToForm"
           class="bg-gold-light border-2 border-gold-light hover:bg-gold-dark text-blue-dark2 hover:text-white py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] text-center"
         >
           Підтвердити участь
-        </a>
+        </button>
         <button
           @click="scrollToDetails"
           class="bg-transparent border-2 border-white hover:bg-gold-dark text-white py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] text-center"
