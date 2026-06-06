@@ -6,101 +6,6 @@ const route = useRoute();
 const userCode = route.params.code;
 const guest = ref(null);
 
-// Данные формы RSVP
-const formData = ref({
-  name: "",
-  contact: "",
-  guestCount: 1,
-  transfer: "",
-  accommodation: "",
-});
-
-// Состояния для UI обратной связи
-const isSubmitting = ref(false);
-const isSuccess = ref(false);
-
-// Управление видимостью формы: если гість вже відправив, показываем плашку
-const showForm = ref(true);
-
-// Управление счетчиком гостей
-const incrementGuests = () => {
-  if (formData.value.guestCount < 10) {
-    formData.value.guestCount++;
-  }
-};
-
-const decrementGuests = () => {
-  if (formData.value.guestCount > 1) {
-    formData.value.guestCount--;
-  }
-};
-
-// Отправка формы на Node.js сервер
-const handleSubmit = async () => {
-  isSubmitting.value = true;
-  try {
-    const response = await fetch("/api/rsvp", {
-      // Укажи порт своего Node сервера, если он отличается
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        code: userCode,
-        response: {
-          name: formData.value.name,
-          contact: formData.value.contact,
-          guestCount: guest.value?.family ? formData.value.guestCount : 1,
-          transfer: formData.value.transfer,
-          accommodation: guest.value?.niko
-            ? formData.value.accommodation
-            : "no",
-        },
-        timestamp: new Date().toISOString(),
-      }),
-    });
-
-    const result = await response.json();
-    if (result.ok) {
-      isSuccess.value = true;
-      // mark guest as having submitted (update local state)
-      if (guest.value) {
-        guest.value.rsvp = true;
-        guest.value.response = result.guest?.response || {
-          name: formData.value.name,
-          contact: formData.value.contact,
-        };
-      }
-      showForm.value = false;
-      alert("Дякуємо! Вашу відповідь успішно збережено.");
-    } else {
-      alert(`Помилка: ${result.error}`);
-    }
-  } catch (error) {
-    console.error("Ошибка отправки RSVP:", error);
-    alert("Не вдалося надіслати відповідь. Перевірте з’єднання з сервером.");
-  } finally {
-    isSubmitting.value = false;
-  }
-};
-
-function resetFormToEmpty() {
-  formData.value = {
-    name: "",
-    contact: "",
-    guestCount: 1,
-    transfer: "",
-    accommodation: "",
-  };
-}
-
-function editForm() {
-  // open empty form for editing
-  resetFormToEmpty();
-  showForm.value = true;
-  // optional: focus first input after nextTick
-}
-
 // Логика Таймера Отсчета
 const targetDate = new Date("2026-08-29T13:30:00").getTime();
 let timerInterval = null;
@@ -136,12 +41,6 @@ onMounted(async () => {
     const guests = await response.json();
     const foundGuest = guests.find((g) => g.code === userCode);
     guest.value = foundGuest;
-
-    if (foundGuest) {
-      if (foundGuest.rsvp === true || foundGuest.response) {
-        showForm.value = false;
-      }
-    }
     updateCountdown();
     timerInterval = setInterval(updateCountdown, 1000);
   } catch (error) {
@@ -203,12 +102,12 @@ function scrollToTransferForm() {
       <div
         class="hero-buttons mt-6 w-full flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 relative z-10 px-4"
       >
-        <button
-          @click="scrollToForm"
+        <a
+          href=""
           class="bg-gold-light border-2 border-gold-light hover:bg-gold-dark text-blue-dark2 hover:text-white py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] text-center"
         >
           Підтвердити участь
-        </button>
+        </a>
         <button
           @click="scrollToDetails"
           class="bg-transparent border-2 border-white hover:bg-gold-dark text-white py-2 px-4 rounded-md w-full sm:w-auto min-w-[180px] text-center"
@@ -619,191 +518,93 @@ function scrollToTransferForm() {
         </div>
       </div>
     </section>
-
-    <div
+    <section
       id="reg-form"
-      class="px-[10px] bg-[url('/form-bg.jpg')] bg-no-repeat bg-cover pt-8 sm:pt-12 pb-12 sm:pb-16"
+      class="bg-[url('/form-bg.jpg')] bg-cover bg-center py-12 sm:py-16 md:py-20 px-4 relative flex flex-col items-center justify-center min-h-[50vh]"
     >
-      <div
-        v-if="showForm"
-        class="max-w-md mx-auto my-8 sm:my-12 p-6 sm:p-8 bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-slate-100 text-center font-sans mx-4"
-      >
-        <h3
-          class="text-3xl md:text-4xl font-title text-blue-dark2 mb-2 font-bold"
+      <div class="max-w-4xl w-full mx-auto">
+        <div class="text-center mb-6 sm:mb-8 md:mb-10">
+          <h3
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-title font-semibold text-blue-dark2 tracking-wide leading-tight"
+          >
+            Чекаємо на вас з нетерпінням!
+          </h3>
+        </div>
+
+        <p
+          class="text-blue-dark2 leading-relaxed text-sm sm:text-base md:text-lg max-w-2xl mx-auto text-center font-light mb-8 sm:mb-12"
         >
-          Підтвердження <br />
-          присутності
-        </h3>
-        <p class="text-xs sm:text-sm text-slate-500 mb-6">
-          Будь ласка, заповніть форму до <strong>1 серпня</strong>, щоб ми могли
-          все організувати
+          Ми дуже раді, що ви будете поруч з нами в цей особливий день. Наша
+          любов до вас безмежна, і ми не можемо дочекатися, щоб розділити це
+          свято разом з вами. До зустрічі 29 серпня 2026 року!
         </p>
 
-        <form @submit.prevent="handleSubmit" class="space-y-5 text-left">
-          <div>
-            <label
-              class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5"
-              >Ваше ПІБ</label
-            >
-            <input
-              v-model="formData.name"
-              type="text"
-              placeholder="Прізвище, Ім'я, По батькові"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all duration-200 text-slate-800 placeholder-slate-400 text-sm sm:text-base"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5"
-              >Номер телефону або Telegram</label
-            >
-            <input
-              v-model="formData.contact"
-              type="text"
-              placeholder="+380... або @username"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-2 focus:ring-amber-100 outline-none transition-all duration-200 text-slate-800 placeholder-slate-400 text-sm sm:text-base"
-              required
-            />
-          </div>
-
-          <div v-if="guest?.family === true">
-            <label
-              class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5"
-              >Скільки людей буде з вами?</label
-            >
-            <div
-              class="flex items-center justify-between p-2 bg-slate-50 rounded-xl border border-slate-200 w-36"
-            >
-              <button
-                type="button"
-                @click="decrementGuests"
-                class="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-xs border border-slate-200 text-slate-600 hover:bg-amber-50 hover:text-amber-600 active:scale-90 transition-all font-bold"
-              >
-                −
-              </button>
-              <span class="text-lg font-semibold text-slate-800 select-none">{{
-                formData.guestCount
-              }}</span>
-              <button
-                type="button"
-                @click="incrementGuests"
-                class="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-xs border border-slate-200 text-slate-600 hover:bg-amber-50 hover:text-amber-600 active:scale-90 transition-all font-bold"
-              >
-                +
-              </button>
-            </div>
-          </div>
-
-          <div>
-            <label
-              class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2"
-              >Чи потрібен вам трансфер з Південноукраїнська?</label
-            >
-            <div class="grid grid-cols-2 gap-2 sm:gap-3">
-              <label
-                class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-100 hover:border-amber-200 cursor-pointer transition-all has-[:checked]:border-amber-400 has-[:checked]:bg-amber-50/40"
-              >
-                <input
-                  v-model="formData.transfer"
-                  type="radio"
-                  name="transfer"
-                  value="yes"
-                  class="sr-only"
-                  required
-                />
-                <span class="text-xs sm:text-sm font-medium text-slate-700"
-                  >Так, потрібен</span
-                >
-              </label>
-              <label
-                class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-100 hover:border-amber-200 cursor-pointer transition-all has-[:checked]:border-amber-400 has-[:checked]:bg-amber-50/40"
-              >
-                <input
-                  v-model="formData.transfer"
-                  type="radio"
-                  name="transfer"
-                  value="no"
-                  class="sr-only"
-                />
-                <span class="text-xs sm:text-sm font-medium text-slate-700"
-                  >Ні, доїду сам</span
-                >
-              </label>
-            </div>
-          </div>
-
-          <div v-if="guest?.niko === true">
-            <label
-              class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2"
-              >Чи необхідне вам житло для ночівлі?</label
-            >
-            <div class="grid grid-cols-2 gap-2 sm:gap-3">
-              <label
-                class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-100 hover:border-amber-200 cursor-pointer transition-all has-[:checked]:border-amber-400 has-[:checked]:bg-amber-50/40"
-              >
-                <input
-                  v-model="formData.accommodation"
-                  type="radio"
-                  name="accommodation"
-                  value="yes"
-                  class="sr-only"
-                  required
-                />
-                <span class="text-xs sm:text-sm font-medium text-slate-700"
-                  >Так, будь ласка</span
-                >
-              </label>
-              <label
-                class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-100 hover:border-amber-200 cursor-pointer transition-all has-[:checked]:border-amber-400 has-[:checked]:bg-amber-50/40"
-              >
-                <input
-                  v-model="formData.accommodation"
-                  type="radio"
-                  name="accommodation"
-                  value="no"
-                  class="sr-only"
-                />
-                <span class="text-xs sm:text-sm font-medium text-slate-700"
-                  >Ні, не потрібно</span
-                >
-              </label>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            :disabled="isSubmitting"
-            class="w-full py-3 sm:py-3.5 mt-4 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-white font-medium rounded-xl shadow-lg shadow-amber-200/50 active:scale-[0.98] transition-all duration-150 tracking-wide disabled:opacity-50 text-sm sm:text-base"
+        <div
+          class="text-center bg-white/40 backdrop-blur-sm p-6 sm:p-8 rounded-2xl max-w-3xl mx-auto border border-white/20 shadow-sm"
+        >
+          <p
+            class="text-blue-dark2 font-medium text-sm sm:text-base md:text-lg mb-6"
           >
-            {{ isSubmitting ? "Надсилання..." : "Надіслати відповідь" }}
-          </button>
-        </form>
-      </div>
+            Для підтвердження присутності, вказання кількості гостей та потреби
+            в трансфері, будь ласка, зв'яжіться з нами за такими контактами:
+          </p>
 
-      <div
-        v-else
-        class="max-w-lg mx-auto my-8 sm:my-12 p-6 bg-amber-50/90 rounded-2xl border border-amber-200 text-center mx-4"
-      >
-        <p class="text-xl sm:text-2xl text-blue-dark2 font-medium">
-          Ви вже відправили підтвердження.
-        </p>
-        <p class="text-xs sm:text-sm text-blue-dark2 mt-2">
-          Якщо потрібно оновити відповідь, натисніть «Редагувати» — відкриється
-          порожня форма.
-        </p>
-        <div class="mt-4 flex items-center justify-center gap-4">
-          <button
-            @click.prevent="editForm"
-            class="px-4 py-2 bg-blue-dark2 text-white rounded-md text-sm sm:text-base"
+          <ul
+            class="grid grid-cols-1 md:grid-cols-2 gap-6 text-blue-dark2 text-sm sm:text-base text-center md:text-left"
           >
-            Редагувати
-          </button>
+            <li
+              class="bg-white/60 p-4 rounded-xl space-y-2 border border-blue-dark2/10 shadow-sm"
+            >
+              <span
+                class="block text-xs uppercase tracking-wider text-gold-dark font-semibold"
+                >Наречена</span
+              >
+              <div class="space-y-1">
+                <p class="font-medium">
+                  <a
+                    href="tel:+380683073076"
+                    class="hover:text-gold-dark transition duration-200 block sm:inline"
+                    >+38 (068) 307-30-76</a
+                  >
+                </p>
+                <p class="text-xs sm:text-sm break-all">
+                  <a
+                    href="mailto:leznenkovioletta@gmail.com"
+                    class="hover:underline opacity-90 transition"
+                    >leznenkovioletta@gmail.com</a
+                  >
+                </p>
+              </div>
+            </li>
+
+            <li
+              class="bg-white/60 p-4 rounded-xl space-y-2 border border-blue-dark2/10 shadow-sm"
+            >
+              <span
+                class="block text-xs uppercase tracking-wider text-gold-dark font-semibold"
+                >Наречений</span
+              >
+              <div class="space-y-1">
+                <p class="font-medium">
+                  <a
+                    href="tel:+380688206936"
+                    class="hover:text-gold-dark transition duration-200 block sm:inline"
+                    >+38 (068) 820-69-36</a
+                  >
+                </p>
+                <p class="text-xs sm:text-sm break-all">
+                  <a
+                    href="mailto:artkeyn@gmail.com"
+                    class="hover:underline opacity-90 transition"
+                    >artkeyn@gmail.com</a
+                  >
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-
+    </section>
     <section
       id="faq"
       class="max-w-2xl mx-auto px-4 mt-12 sm:mt-16 mb-8 sm:mb-12"
@@ -924,7 +725,8 @@ function scrollToTransferForm() {
             class="mt-[2px] text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-fadeIn p-4"
           >
             Парковка доступна біля ресторану. Також організовано трансфер з м.
-            Південоукраїнськ — оберіть відповідну опцію у формі підтвердження.
+            Південоукраїнськ. Якщо вам потрібен транспорт, будь ласка,
+            попередньо повідомте це начерених.
           </div>
         </details>
 
@@ -960,8 +762,10 @@ function scrollToTransferForm() {
           <div
             class="mt-[2px] text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-fadeIn p-4"
           >
-            Найкращий подарунок — ваша присутність. Якщо бажаєте, можна уточнити
-            у молодят або принести символічний подарунок.
+            Найцінніший подарунок для нас — це ваша присутність у цей особливий
+            день. Ми будемо щиро раді будь-якому прояву вашої уваги та турботи.
+            Якщо ж ви замислюєтесь над подарунком, то будемо вдячні за внесок у
+            конверті, який допоможе нам здійснити наші спільні мрії.
           </div>
         </details>
 
@@ -997,8 +801,8 @@ function scrollToTransferForm() {
           <div
             class="mt-[2px] text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-fadeIn p-4"
           >
-            Якщо потрібне житло, позначте відповідну опцію у формі — ми
-            допоможемо з варіантами проживання.
+            Якщо потрібне житло, будь ласка, повідомте про це наречених
+            заздалегідь будь ласка.
           </div>
         </details>
 
