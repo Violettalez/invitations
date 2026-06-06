@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-title: "Great Vibes", "sans-serif";
+  --font-subtitle: "Roboto Condensed", "sans-serif";
+  --font-letters: "Luxurious Script", "sans-serif";
+  --color-white-light: #f0f1f2;
+  --color-gold-light: #f0e3ce;
+  --color-gold-dark: #cba161;
+  --color-blue-light: #b6c5d5;
+  --color-blue-dark: #849caf;
+  --color-blue-dark2: #0f2940;
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10px;
+}
