@@ -65,7 +65,6 @@ export default defineConfig({
         });
       },
     },
-
   ],
-  base: "/invitations/",
+  base: "/violettalez.github.io/invitations/",
 });
