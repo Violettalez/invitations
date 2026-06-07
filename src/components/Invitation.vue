@@ -176,7 +176,7 @@ function scrollToTransferForm() {
             <p>
               Адреса:
               <span class="font-medium text-gray-800"
-                >Уманський узвіз, 9, м. Первомайськ</span
+                >Уманський узвіз 9, м. Первомайськ</span
               >
             </p>
             <p>
@@ -310,15 +310,17 @@ function scrollToTransferForm() {
             Увага!
           </h2>
           <p class="text-blue-dark2 text-sm sm:text-base mb-8 sm:mb-12">
-            Для всіх охочих буде надано трансфер з м. Південноукраїнськ (і назад
-            до міста після свята). Автобуси комфортні, тож, якщо Вам треба
-            транспорт з Південноукраїнську, то обов'язково відмітьте це при
-            підтвердженні участи в святі. Заздалегідь велике дякуєм!
+            Для всіх охочих буде організовано трансфер з м. Південноукраїнськ до
+            місця святкування та назад після завершення свята. Автобуси
+            комфортні, тому, якщо вам потрібен трансфер, будь ласка, обов'язково
+            зазначте це під час підтвердження своєї присутності. Заздалегідь
+            щиро дякуємо!
           </p>
           <p class="text-blue-dark2 text-sm sm:text-base">
-            Місце зборів та час відправлення автобусів: <br />
+            Місце збору та час відправлення автобусів (попередня інформація,
+            точне місце буде повідомлено згодом): <br />
             <span class="font-medium text-gray-800"
-              >проспект Незалежності, 10, м.Південноукраїнськ (біля Будинку
+              >проспект Незалежності 10, м.Південноукраїнськ (біля Будинку
               Культури), 12:30</span
             >
           </p>
@@ -348,8 +350,11 @@ function scrollToTransferForm() {
             Наше свято пройде в <strong>класичному стилі</strong>, тому ми
             будемо раді бачити вас в елегантних костюмах та сукнях. Буде чудово,
             якщо при виборі вбрання ви звернете увагу на кольорову гаму дня:
-            <strong>пастельні відтінки блакитного та золотого</strong>. Будемо
-            вдячні, якщо білий колір залишиться привілеєм нареченої.
+            <strong>пастельні відтінки блакитного та золотого</strong>. Ми
+            неймовірно любимо українські традиції, проте для цього дня ми обрали
+            європейський класичний стиль, тому просимо утриматися від вишиванок.
+            Будемо також вдячні, якщо білий колір залишиться привілеєм
+            нареченої.
           </p>
           <div
             class="colors flex items-center justify-center gap-3 sm:gap-4 mt-6 mb-10"
@@ -475,7 +480,7 @@ function scrollToTransferForm() {
         <h3
           class="text-2xl sm:text-3xl md:text-4xl font-title font-semibold text-blue-dark2 tracking-wide"
         >
-          Ще декілька важливих деталей
+          Ще кілька важливих деталей ✨
         </h3>
       </div>
       <div
@@ -521,7 +526,7 @@ function scrollToTransferForm() {
             class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0"
           />
           <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
-            Так як церемонія та банкет будуть знаходитися на локації біля річки,
+            Оскільки церемонія та банкет будуть проходити на локації біля річки,
             радимо мати при собі легку кофту або шалик для вечірньої прохолоди.
           </p>
         </div>
@@ -543,9 +548,9 @@ function scrollToTransferForm() {
         <p
           class="text-blue-dark2 leading-relaxed text-sm sm:text-base md:text-lg max-w-2xl mx-auto text-center font-light mb-8 sm:mb-12"
         >
-          Ми дуже раді, що ви будете поруч з нами в цей особливий день. Наша
+          Ми дуже раді, що ви будете поруч із нами у цей особливий день. Наша
           любов до вас безмежна, і ми не можемо дочекатися, щоб розділити це
-          свято разом з вами. До зустрічі 29 серпня 2026 року!
+          свято разом із вами. До зустрічі 29 серпня 2026 року!
         </p>
 
         <div
@@ -636,7 +641,7 @@ function scrollToTransferForm() {
             <span
               class="text-sm sm:text-base md:text-lg pr-4 font-medium transition-colors group-hover:text-amber-600"
             >
-              Який дрес-код на заході?
+              Який дрес-код на святі?
             </span>
             <span
               class="flex-shrink-0 transition-transform duration-300 group-open:rotate-180 bg-blue-dark2/5 group-hover:bg-amber-100 p-2 rounded-full"
@@ -696,8 +701,8 @@ function scrollToTransferForm() {
           <div
             class="mt-[2px] text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-fadeIn p-4"
           >
-            Буде приємно мати поруч родину, але просимо вказати у формі
-            кількість гостей, щоб ми могли все підготувати.
+            Будемо раді бачити вас разом із родиною, тож просимо вказати у формі
+            точну кількість гостей, щоб ми могли все підготувати.
           </div>
         </details>
 
@@ -734,8 +739,8 @@ function scrollToTransferForm() {
             class="mt-[2px] text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-fadeIn p-4"
           >
             Парковка доступна біля ресторану. Також організовано трансфер з м.
-            Південоукраїнськ. Якщо вам потрібен транспорт, будь ласка,
-            попередньо повідомте це начерених.
+            Південноукраїнськ. Якщо вам потрібен транспорт, будь ласка,
+            попередньо повідомте про це.
           </div>
         </details>
 
@@ -773,7 +778,7 @@ function scrollToTransferForm() {
           >
             Найцінніший подарунок для нас — це ваша присутність у цей особливий
             день. Ми будемо щиро раді будь-якому прояву вашої уваги та турботи.
-            Якщо ж ви замислюєтесь над подарунком, то будемо вдячні за внесок у
+            Якщо ж ви замислюєтесь над подарунком, будемо вдячні за внесок у
             конверті, який допоможе нам здійснити наші спільні мрії.
           </div>
         </details>
@@ -810,8 +815,8 @@ function scrollToTransferForm() {
           <div
             class="mt-[2px] text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-fadeIn p-4"
           >
-            Якщо потрібне житло, будь ласка, повідомте про це наречених
-            заздалегідь будь ласка.
+            Якщо вам потрібне житло, будь ласка, заздалегідь повідомте про це
+            наречених.
           </div>
         </details>
 
@@ -824,7 +829,7 @@ function scrollToTransferForm() {
             <span
               class="text-sm sm:text-base md:text-lg pr-4 font-medium transition-colors group-hover:text-amber-600"
             >
-              Куди звертатися з додатковими питаннями?
+              Як з нами зв’язатися, якщо виникнуть додаткові питання?
             </span>
             <span
               class="flex-shrink-0 transition-transform duration-300 group-open:rotate-180 bg-blue-dark2/5 group-hover:bg-amber-100 p-2 rounded-full"
@@ -849,22 +854,24 @@ function scrollToTransferForm() {
           >
             <div class="flex flex-col sm:gap-6 gap-2">
               <p>
-                <strong>Віолетта:</strong>
+                <strong>Віолетта:</strong> <span> </span>
                 <a
                   href="tel:+380683073076"
                   class="hover:text-amber-600 underline decoration-amber-200 transition-colors"
                   >+38 (068) 307-30-76</a
                 >
-                <span class="text-xs text-gray-400">(Viber/Telegram)</span>
+                <span> </span>
+                <span class="text-xs text-gray-400"> (Viber/Telegram)</span>
               </p>
               <p>
-                <strong>Артур:</strong>
+                <strong>Артур:</strong> <span> </span>
                 <a
                   href="tel:+380688206936"
                   class="hover:text-amber-600 underline decoration-amber-200 transition-colors"
                   >+38 (068) 820-69-36</a
                 >
-                <span class="text-xs text-gray-400">(Viber/Telegram)</span>
+                <span> </span>
+                <span class="text-xs text-gray-400"> (Viber/Telegram)</span>
               </p>
             </div>
             <p class="pt-1 break-all">
@@ -906,14 +913,14 @@ function scrollToTransferForm() {
             </h1>
           </div>
           <div class="text-xs sm:text-sm mt-2">
-            &copy; 2026 Артур & Віолетта — Всі права захищені.
+            &copy; 2026 Артур & Віолетта — усі права захищені.
           </div>
           <div class="text-xs text-gray-200 mt-2">Створено з любов'ю ❤️</div>
         </div>
 
         <div class="venue text-sm text-center md:text-left">
           <h4 class="font-medium text-white mb-2">Деталі заходу</h4>
-          <div>Дата: <strong>29 серпня 2026</strong></div>
+          <div>Дата: <strong>29 серпня 2026 року</strong></div>
           <div>Час: <strong>13:30</strong></div>
           <div class="mt-2">Місце: <strong>Ресторан "River"</strong></div>
           <div class="break-all">
@@ -923,7 +930,7 @@ function scrollToTransferForm() {
               target="_blank"
               class="underline text-xs sm:text-sm break-all"
             >
-              Уманський узвіз, 9, м. Первомайськ
+              Уманський узвіз 9, м. Первомайськ
             </a>
           </div>
         </div>
@@ -972,12 +979,6 @@ function scrollToTransferForm() {
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="max-w-7xl mx-auto px-4 mt-6 text-center text-xs text-gray-300"
-      >
-        Бажаєш повернутись вгору?
-        <a href="#top" class="underline">Повернутися</a>
       </div>
     </footer>
   </div>
