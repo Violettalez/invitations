@@ -95,8 +95,8 @@ function scrollToTransferForm() {
           class="text-sm sm:text-base md:text-lg mt-2 max-w-[700px] mx-auto px-2"
         >
           В житті є моменти, які хочеться проживати разом з близькими людьми.
-          Запрошуємо вас стати свідком
-          створення нашої сім'ї та розділити це незабутнє свято з нами.
+          Запрошуємо вас стати свідком створення нашої сім'ї та розділити це
+          незабутнє свято з нами.
         </p>
       </div>
       <div
@@ -1005,7 +1005,7 @@ function scrollToTransferForm() {
       </span>
     </p>
     <a
-      href="/"
+      href="/invitations/"
       class="inline-block px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md text-sm sm:text-base"
       >Повернутися на головну сторінку</a
     >
