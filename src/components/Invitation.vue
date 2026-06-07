@@ -701,8 +701,8 @@ function scrollToTransferForm() {
           <div
             class="mt-[2px] text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3 animate-fadeIn p-4"
           >
-            Будемо раді бачити вас разом із родиною, тож просимо вказати у формі
-            точну кількість гостей, щоб ми могли все підготувати.
+            Будемо раді бачити вас разом із родиною, тож просимо вказати точну
+            кількість гостей, щоб ми могли все підготувати.
           </div>
         </details>
 
